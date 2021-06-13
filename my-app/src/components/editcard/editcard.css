@@ -1,0 +1,11 @@
+.editcard {
+    position: absolute;
+    z-index: 7;
+    top : 7%;
+    left : 18%;
+    background-color: var(--card-green);
+    width: 50rem;
+    height: 15rem ;
+    border-radius: 0.3rem;
+    filter: blur(10);
+}
