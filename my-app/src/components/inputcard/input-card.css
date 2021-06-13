@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Montserrat&display=swap');
+
+.card-container{
+  margin: 1rem;
+  padding: 1rem;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  /* border: 1px solid; */
+}
+*{
+  /* border: 1px solid; */
+  box-sizing: border-box;
+
+}
+.empty{
+  display: block;
+  width: 10%;
+  border: 1px solid;
+}
+.card{
+
+  background-color: var(--card-green);
+  width : 40%;
+  height: auto;
+  border: 1px solid transparent;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: space-evenly;
+  border-radius: 0.25rem;
+
+}
+.title{
+  padding: 0.75rem;
+  margin: 0.3rem 0.5rem 0.2rem 0.5rem;
+  border-radius: 0.2rem;
+  border : 1px dotted transparent;
+  font-size: 1rem;
+  font-weight: 520;
+}
+.note{
+  padding: 1rem;
+  font-size: 0.9rem;
+  margin: 0.3rem 0.5rem 0.5rem 0.5rem;
+  border-radius: 0.2rem;
+  border : 1px dotted transparent;
+}
+.outline:focus{
+  
+  /* outline-color: var(--focus-green); */
+  /* outline-width: 0.1rem ; */
+}
+.outline{
+  /* border: transparent; */
+  outline : none;
+}
+.card--background{
+  background-color: var(--card-green);
+}
+.button{
+  width: 50%;
+  height: auto;
+  margin: 0.25rem 0 0.4rem 0;
+  opacity: 70%;
+  font-weight: 550;
+  padding: 0.5rem 0.75rem ;
+}
+.button--secondary{
+  color: var(--focus-green);
+  background-color: var(--card-green);
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+}
+.button--secondary:hover{
+  border: 1.5px solid var(--focus-green);
+  font-weight: 600;
+  opacity: 100%;
+}
+.container__title{
+  display: flex;
+  justify-content: space-between;
+}
+.align-right{
+  padding: 0.85rem 1.5rem 0.5rem 0.5rem;
+}
+.image-button--pin{
+  max-width: 100%;
+  margin: auto;
+  text-align: center;
+}
