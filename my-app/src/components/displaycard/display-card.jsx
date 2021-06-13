@@ -1,6 +1,5 @@
 import { EditCard } from "../editcard/edit-card";
-import { PinnedCards } from "./pinned-cards";
-import { OtherCards } from "./other-cards";
+import { SingleCard } from "./single-card";
 import { useTask } from "../../contexts/task-context";
 import "./displaycard.css";
 export function DisplayCard({displayRef}){
@@ -19,7 +18,7 @@ export function DisplayCard({displayRef}){
                           .sort((a,b) => a.sortKey > b.sortKey ? -1 : 1)
                           .map((taskItem) => {
                               console.log(taskItem);
-                              return <PinnedCards taskItem={taskItem} />
+                              return <SingleCard taskItem={taskItem} />
                          })
         }
             <p>Other Cards</p>
@@ -27,7 +26,7 @@ export function DisplayCard({displayRef}){
           state.taskList.filter(taskItem => !taskItem.isPinned)
                         .sort((a,b) => a.sortKey > b.sortKey ? -1 : 1)
                         .map(taskItem => {
-                          return <OtherCards taskItem={taskItem} />
+                          return <SingleCard taskItem={taskItem} />
                         })
         }
       </section>

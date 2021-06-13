@@ -2,7 +2,7 @@ import { EditCard } from "../editcard/edit-card";
 import { useTask } from "../../contexts/task-context";
 import "./displaycard.css";
 
-function OtherCards({taskItem}){
+function SingleCard({taskItem}){
     const { state , dispatch } = useTask();
     return (
         <div>
@@ -11,8 +11,9 @@ function OtherCards({taskItem}){
                 onClick={() => {
                   dispatch({type : "PIN_TASK",payload : taskItem})
                 }}>
-                <span className="align-right">
-                    <i class="fas fa-thumbtack "></i>
+                <span className="align-right" >
+                    <i
+                     class= {taskItem.isPinned ? "fas fa-thumbtack fa-lg" : "fas fa-thumbtack" } style={{ color : (taskItem.isPinned ?  "#24292e"  : "inherit")}}></i>
                   </span>
                   </button>
               <div
@@ -49,4 +50,4 @@ function OtherCards({taskItem}){
 
     )
 }
-export { OtherCards };
+export { SingleCard };
