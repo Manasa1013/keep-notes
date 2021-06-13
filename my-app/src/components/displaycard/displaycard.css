@@ -1,0 +1,54 @@
+@import url("../inputcard/input-card.css");
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Montserrat&display=swap');
+
+.wrapper{
+    position: relative;
+    top : 1rem;
+    width: 80%;
+    height: auto;
+}
+.displaycontainer{
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    margin: -0.65rem;
+    /* border: 1px dotted black; */
+}
+
+.displaycontainer>*{
+    flex : 1 1 15rem;
+    margin: 0.65rem;
+
+}
+
+.displaycard{
+    width: 15rem;
+    height: 20rem;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    justify-content: space-between;
+}
+
+/* .displaycard > *{
+    /* border: 1px solid; */
+
+
+.display-title {
+    font-size: 1.2rem;
+    flex-shrink: 2;
+}
+.display-note{
+    flex-grow: 4;
+    font-size: 0.9rem;
+    text-align: left;
+}
+
+.buttons--container{
+    flex-shrink: 4;
+    display: flex;
+    justify-content: center;
+}
+.display--button{
+    max-width: 50%;
+}
