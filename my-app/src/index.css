@@ -40,7 +40,7 @@ code {
   display: grid;
   position: relative;
   top : 5.1rem;
-  grid-template-areas: 'sidebar . . elements elements elements' ;
+  grid-template-areas: 'sidebar . . elements' ;
   box-sizing: border-box;
   /* -ms-grid-row-align: end; */
   margin: 0;
@@ -135,4 +135,9 @@ code {
 ::-webkit-scrollbar-thumb {
   border-radius: 10px;
   --webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+
+
+*{
+  /* border:  2px solid; */
 }

@@ -1,6 +1,6 @@
 import { v4 as uuid_v4} from "uuid";
 export function TaskReducer (state,action)  {
-    console.log(action.type);
+    // console.log(action.type);
     switch(action.type) {
         case "SHOW_CARD" : {
             let showCardVar = false;
@@ -52,7 +52,7 @@ export function TaskReducer (state,action)  {
         }
         case "ADD_TASK_TO_LIST" : {
             let taskToBeAdded = { ...action.payload , id : uuid_v4(), isEdit : false , sortKey : Date.now()};
-            console.log(taskToBeAdded,"from ADD_TASK_TO_LIST" );
+            // console.log(taskToBeAdded,"from ADD_TASK_TO_LIST" );
             return {
                   ...state,
                   taskList :  [ taskToBeAdded , ...state.taskList ]
@@ -85,7 +85,13 @@ export function TaskReducer (state,action)  {
             let editableTask = state.taskList.find(taskItem => taskItem.id === action.payload);
             return {
                 ...state,
-                editTask : {...state.editTask , id : editableTask.id , title : editableTask.title, note : editableTask.note, isEdit : true, sortKey : editableTask.sortKey}
+                editTask : {...state.editTask , 
+                    id : editableTask.id , 
+                    title : editableTask.title, 
+                    note : editableTask.note, 
+                    isEdit : true, 
+                    sortKey : editableTask.sortKey, 
+                    isPinned : editableTask.isPinned}
             }
         }
         case "EDIT_INPUT_TITLE" : {
@@ -132,7 +138,41 @@ export function TaskReducer (state,action)  {
                 taskList : [taskToBePinned,...sortedPinnedList]
             }
         }
-        default : console.log("error case")
+        //search -- header component
+        case `SEARCH_INPUT` : {
+            console.log(action.payload , "from search-header ");
+            
+            return {
+                ...state,
+                searchTask : {
+                    ...state.searchTask, task : action.payload
+                }
+            }
+        }
+        case `SEARCH_TASK_BY_TITLE` : {
+            let foundTask = state.taskList.filter(taskItem => action.payload === taskItem.title || action.payload === taskItem.note);
+            console.log(foundTask, "found task");
+            return state;
+
+        }
+        case `SEARCH_TASK_RESET` : {
+            return {
+                ...state,
+                searchTask : {
+                    ...state.searchTask, task : ``
+                }
+            }
+        }
+        case `DELETE_NOTE` : {
+            let afterDeletingTaskList = state.taskList.filter(taskItem => taskItem.id !== action.payload.id);
+            return {
+                ...state,
+                taskList : [
+                    ...state.taskList, ...afterDeletingTaskList
+                ]
+            }
+        }
+        default : console.error("error case")
     }
     return(
         <div>From taskreducer </div>
