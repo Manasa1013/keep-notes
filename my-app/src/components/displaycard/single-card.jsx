@@ -32,12 +32,17 @@ function SingleCard({taskItem}){
                   {taskItem.note}
                 </p> 
                 <div className="buttons--container">
-                <button
-                  type="button"
-                  className="button button--secondary outline display--button"
-                >
-                  {taskItem.isEdit ? "Close" : "Edit"}
-                </button>
+                  <button type="button"
+                  className="button button--secondary outline"
+                  onClick={() => {
+                    dispatch({type : "DELETE_NOTE" , payload : taskItem })
+                  }}>Delete</button>
+                  <button
+                    type="button"
+                    className="button button--secondary outline display--button"
+                  >
+                    {taskItem.isEdit ? "Close" : "Edit"}
+                  </button>
                 </div>
                 
               </div>

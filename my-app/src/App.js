@@ -3,7 +3,8 @@ import './App.css';
 import { Header } from "./components/header/header";
 import { Sidenav } from "./components/sidenav/sidenav";
 import { InputCard } from "./components/inputcard/input-card";
-import { DisplayCard } from "./components/displaycard/display-card";
+import { PinnedCards } from "./components/displaycard/pinned-cards";
+import { OtherCards  } from "./components/displaycard/other-cards";
 import { useOnClickOutside } from "./utils/use-click-outside";
 import { useTask } from './contexts/task-context';
 
@@ -12,7 +13,8 @@ function App() {
   const inputRef = useRef(null);
   const focusRef = useRef(null);
   const displayRef = useRef(null);
-  console.log({state}, "form 13th line app.js");
+  const unPinnedRef = useRef(null);
+  // console.log({state}, "form 13th line app.js");
   useEffect(() => {
     focusRef.current.focus();
   },[])
@@ -175,7 +177,7 @@ function App() {
   }, []);
   let isEditOnWhole = state.taskList
     .map((itemEditable) => {
-      console.log(`${{itemEditable}} : taskItem `);
+      // console.log(`${{itemEditable}} : taskItem `);
       return itemEditable.isEdit;
     })
     .reduce((acc, curr) => acc || curr, false) ;
@@ -200,8 +202,10 @@ function App() {
         </div>
         <div className="grid-item-2">
           <InputCard inputRef={inputRef} focusRef={focusRef} />
-          Pinned List
-          <DisplayCard displayRef={displayRef} />
+          <p>Pinned Cards</p>
+          <PinnedCards displayRef={displayRef} />
+          <p>Other Cards</p>
+          <OtherCards unPinnedRef={unPinnedRef} />
         </div>
       </div>
     </div>
